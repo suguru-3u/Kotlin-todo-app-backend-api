@@ -1,4 +1,4 @@
-package moja.todo_app_backend
+package todo.app.backend.api
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
@@ -8,5 +8,4 @@ class TodoAppBackendApplication
 
 fun main(args: Array<String>) {
 	runApplication<TodoAppBackendApplication>(*args)
-	print("Hello world")
 }
