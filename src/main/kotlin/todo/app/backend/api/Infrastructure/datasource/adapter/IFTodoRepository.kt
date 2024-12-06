@@ -13,5 +13,5 @@ interface IFTodoRepository {
     fun index():String
 
     @InsertProvider(type = TodoRepositoryIml::class, method = "register")
-    fun register(todoForm: TodoForm):String
+    fun register(todoForm: TodoForm)
 }

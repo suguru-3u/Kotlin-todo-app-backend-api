@@ -6,15 +6,15 @@ import todo.app.backend.api.presentation.controller.request.TodoForm
 
 @Service
 class TodoApplicationService(
-    val todoRepositoryIml : IFTodoRepository
+    val todoRepository : IFTodoRepository
 ) {
 
     fun index(){
-        val result = todoRepositoryIml.index()
+        val result = todoRepository.index()
         println("取得結果: $result")
     }
 
     fun register(todoForm: TodoForm){
-
+        todoRepository.register(todoForm)
     }
 }
