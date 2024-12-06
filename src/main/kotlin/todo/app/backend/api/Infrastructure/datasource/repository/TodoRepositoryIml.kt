@@ -1,8 +1,6 @@
 package todo.app.backend.api.Infrastructure.datasource.repository
 
 import org.apache.ibatis.jdbc.SQL
-import org.springframework.expression.common.ExpressionUtils.toInt
-import todo.app.backend.api.Infrastructure.datasource.adapter.IFTodoRepository
 import todo.app.backend.api.presentation.controller.request.TodoForm
 
 class TodoRepositoryIml {
