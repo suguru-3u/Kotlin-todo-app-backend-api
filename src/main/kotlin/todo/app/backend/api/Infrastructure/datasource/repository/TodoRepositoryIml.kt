@@ -5,6 +5,7 @@ import todo.app.backend.api.presentation.controller.request.TodoForm
 
 class TodoRepositoryIml {
 
+    @Suppress("unused")
     fun index(): String = SQL().run {
         SELECT(
             "title"
@@ -13,12 +14,14 @@ class TodoRepositoryIml {
         toString()
     }
 
+    @Suppress("unused", "UNUSED_PARAMETER")
     fun register(todoForm: TodoForm): String = SQL().run {
         INSERT_INTO("todo")
         VALUES("title", "#{title}")
         toString()
     }
 
+    @Suppress("unused", "UNUSED_PARAMETER")
     fun findTodo(todoId: String): String = SQL().run {
         SELECT(
             "title"
@@ -28,6 +31,7 @@ class TodoRepositoryIml {
         toString()
     }
 
+    @Suppress("unused", "UNUSED_PARAMETER")
     fun update(todoId: String, todoForm: TodoForm): String = SQL().run {
         UPDATE("todo")
         SET("title = #{todoForm.title}")

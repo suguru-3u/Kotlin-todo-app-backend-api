@@ -5,7 +5,6 @@ import org.springframework.transaction.annotation.Transactional
 import todo.app.backend.api.Infrastructure.datasource.adapter.IFTodoRepository
 import todo.app.backend.api.domain.TodoService
 import todo.app.backend.api.presentation.controller.request.TodoForm
-import kotlin.reflect.typeOf
 
 @Service
 class TodoApplicationService(
