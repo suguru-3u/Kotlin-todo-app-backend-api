@@ -19,4 +19,7 @@ interface IFTodoRepository {
 
     @UpdateProvider(type = TodoRepositoryIml::class, method = "update")
     fun edit(@Param("todoId") todoId: String, @Param("todoForm") todoForm: TodoForm)
+
+    @DeleteProvider(type = TodoRepositoryIml::class, method = "delete")
+    fun delete(todoId: String)
 }

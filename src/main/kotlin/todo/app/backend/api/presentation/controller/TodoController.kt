@@ -25,4 +25,9 @@ class TodoController(
     fun edit(@PathVariable todoId: Long, @RequestBody todoForm: TodoForm) {
         todoApplicationService.edit(todoId, todoForm)
     }
+
+    @DeleteMapping("/delete/{todoId}")
+    fun delete(@PathVariable todoId: Long){
+        todoApplicationService.delete(todoId)
+    }
 }

@@ -28,4 +28,10 @@ class TodoApplicationService(
         if (editTodo == null) throw Error("存在しないtodo idです")
         todoRepository.edit(todoId.toString(), todoForm)
     }
+
+    fun delete(todoId: Long){
+        val editTodo = todoService.findTodo(todoId.toString())
+        if (editTodo == null) throw Error("存在しないtodo idです")
+        todoRepository.delete(todoId.toString())
+    }
 }

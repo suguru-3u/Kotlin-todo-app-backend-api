@@ -38,4 +38,11 @@ class TodoRepositoryIml {
         WHERE("id = #{todoId}")
         toString()
     }
+
+    @Suppress("unused", "UNUSED_PARAMETER")
+    fun delete(todoId: String):String = SQL().run {
+        DELETE_FROM("todo")
+        WHERE("id = #{todoId}")
+        toString()
+    }
 }
