@@ -1,8 +1,6 @@
 package todo.app.backend.api.Infrastructure.datasource.adapter
 
-import org.apache.ibatis.annotations.InsertProvider
-import org.apache.ibatis.annotations.Mapper
-import org.apache.ibatis.annotations.SelectProvider
+import org.apache.ibatis.annotations.*
 import todo.app.backend.api.Infrastructure.datasource.repository.TodoRepositoryIml
 import todo.app.backend.api.domain.Todo
 import todo.app.backend.api.presentation.controller.request.TodoForm
@@ -15,4 +13,10 @@ interface IFTodoRepository {
 
     @InsertProvider(type = TodoRepositoryIml::class, method = "register")
     fun register(todoForm: TodoForm)
+
+    @SelectProvider(type = TodoRepositoryIml::class, method = "findTodo")
+    fun findTodo(todoId: String):String
+
+    @UpdateProvider(type = TodoRepositoryIml::class, method = "update")
+    fun edit(@Param("todoId") todoId: String, @Param("todoForm") todoForm: TodoForm)
 }
