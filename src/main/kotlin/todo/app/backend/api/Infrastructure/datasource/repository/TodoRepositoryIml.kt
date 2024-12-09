@@ -1,7 +1,7 @@
 package todo.app.backend.api.Infrastructure.datasource.repository
 
 import org.apache.ibatis.jdbc.SQL
-import todo.app.backend.api.presentation.controller.request.TodoForm
+import todo.app.backend.api.presentation.request.TodoForm
 
 class TodoRepositoryIml {
 

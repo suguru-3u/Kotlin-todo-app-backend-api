@@ -4,7 +4,8 @@ import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
 import todo.app.backend.api.Infrastructure.datasource.adapter.IFTodoRepository
 import todo.app.backend.api.domain.TodoService
-import todo.app.backend.api.presentation.controller.request.TodoForm
+import todo.app.backend.api.presentation.request.TodoForm
+import todo.app.backend.api.presentation.responce.ApiResponceTodoIndex
 
 @Service
 class TodoApplicationService(
@@ -12,9 +13,11 @@ class TodoApplicationService(
     val todoRepository: IFTodoRepository
 ) {
 
-    fun index() {
+    fun index(): ApiResponceTodoIndex {
         val result = todoRepository.index()
-        println("取得結果: $result")
+        return ApiResponceTodoIndex(
+            todoList = result
+        )
     }
 
     fun register(todoForm: TodoForm) {
@@ -29,6 +32,7 @@ class TodoApplicationService(
         todoRepository.edit(todoId.toString(), todoForm)
     }
 
+    @Suppress("SENSELESS_COMPARISON", "FoldInitializerAndIfToElvis")
     fun delete(todoId: Long){
         val editTodo = todoService.findTodo(todoId.toString())
         if (editTodo == null) throw Error("存在しないtodo idです")

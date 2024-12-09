@@ -1,7 +1,8 @@
 package todo.app.backend.api.presentation.controller
 
 import org.springframework.web.bind.annotation.*
-import todo.app.backend.api.presentation.controller.request.TodoForm
+import todo.app.backend.api.presentation.request.TodoForm
+import todo.app.backend.api.presentation.responce.ApiResponceTodoIndex
 import todo.app.backend.api.service.TodoApplicationService
 
 @RestController
@@ -12,8 +13,8 @@ class TodoController(
 
     // 一覧取得API
     @GetMapping("/index")
-    fun index() {
-        todoApplicationService.index()
+    fun index(): ApiResponceTodoIndex {
+        return todoApplicationService.index()
     }
 
     @PostMapping("/register")
@@ -27,7 +28,7 @@ class TodoController(
     }
 
     @DeleteMapping("/delete/{todoId}")
-    fun delete(@PathVariable todoId: Long){
+    fun delete(@PathVariable todoId: Long) {
         todoApplicationService.delete(todoId)
     }
 }
