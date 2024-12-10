@@ -9,4 +9,10 @@ class TodoService(val todoRepository : IFTodoRepository) {
     fun findTodo(todoId:String): String {
         return todoRepository.findTodo(todoId)
     }
+
+    fun exist(todoId:String): Boolean {
+        val result = todoRepository.findTodo(todoId)
+        if(result.isEmpty()) return false
+        return false
+    }
 }

@@ -1,5 +1,6 @@
 package todo.app.backend.api.presentation.controller
 
+import org.springframework.http.HttpStatus
 import org.springframework.web.bind.annotation.*
 import todo.app.backend.api.presentation.request.TodoForm
 import todo.app.backend.api.presentation.responce.ApiResponceTodoIndex
@@ -18,6 +19,7 @@ class TodoController(
     }
 
     @PostMapping("/register")
+    @ResponseStatus(HttpStatus.CREATED)
     fun register(@RequestBody todoForm: TodoForm) {
         todoApplicationService.register(todoForm)
     }
