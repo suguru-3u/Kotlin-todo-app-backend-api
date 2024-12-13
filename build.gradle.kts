@@ -14,6 +14,22 @@ java {
 	}
 }
 
+// Integrationテスト用の Source Setを作成する。testで利用しているコードを利用するのでClasspathに追加する
+sourceSets {
+	create("integrationTest") {
+		compileClasspath += main.get().output + test.get().output
+		runtimeClasspath += main.get().output + test.get().output
+	}
+}
+
+// `intTestImplementation` と `intTestRuntimeOnly` を定義する。こちらも testをベースに設定した
+val integrationTestImplementation: Configuration by configurations.getting {
+	extendsFrom(configurations.testImplementation.get())
+}
+
+configurations["integrationTestRuntimeOnly"].extendsFrom(configurations.testRuntimeOnly.get())
+
+
 repositories {
 	mavenCentral()
 }
@@ -28,12 +44,21 @@ dependencies {
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 	testImplementation("org.jetbrains.kotlin:kotlin-test-junit5")
 	testRuntimeOnly("org.junit.platform:junit-platform-launcher")
+	integrationTestImplementation("org.springframework.boot:spring-boot-starter-webflux")
 }
 
 kotlin {
 	compilerOptions {
 		freeCompilerArgs.addAll("-Xjsr305=strict")
 	}
+}
+
+// 専用タスク `integrationTest` を作成。
+val integrationTest = task<Test>("integrationTest") {
+	description = "Runs integration tests."
+	group = "verification"
+	testClassesDirs = sourceSets["integrationTest"].output.classesDirs
+	classpath = sourceSets["integrationTest"].runtimeClasspath
 }
 
 tasks.withType<Test> {
