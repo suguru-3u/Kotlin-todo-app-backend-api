@@ -105,7 +105,12 @@ dependencies {
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation("org.jetbrains.kotlin:kotlin-test-junit5")
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
-    integrationTestImplementation("org.jetbrains.kotlin:kotlin-test-junit5")
+    integrationTestImplementation("org.springframework.boot:spring-boot-starter-test")
+    integrationTestImplementation("org.springframework.boot:spring-boot-testcontainers")
+    integrationTestImplementation("org.junit.jupiter:junit-jupiter:5.8.1")
+    integrationTestImplementation("org.testcontainers:testcontainers:1.20.4")
+    integrationTestImplementation("org.testcontainers:junit-jupiter:1.20.4")
+    integrationTestImplementation("org.testcontainers:mysql") //no version specified
 }
 
 group = "moja"
