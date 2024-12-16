@@ -50,8 +50,8 @@ kotlin {
 // Integrationテスト用の Source Setを作成する。testで利用しているコードを利用するのでClasspathに追加する
 sourceSets {
     create("integrationTest") {
-        compileClasspath += test.get().output
-        runtimeClasspath += test.get().output
+        compileClasspath += main.get().output + test.get().output
+        runtimeClasspath += main.get().output + test.get().output
     }
 }
 
@@ -111,6 +111,7 @@ dependencies {
     integrationTestImplementation("org.testcontainers:testcontainers:1.20.4")
     integrationTestImplementation("org.testcontainers:junit-jupiter:1.20.4")
     integrationTestImplementation("org.testcontainers:mysql") //no version specified
+    integrationTestImplementation("org.springframework.boot:spring-boot-starter-webflux")
 }
 
 group = "moja"
