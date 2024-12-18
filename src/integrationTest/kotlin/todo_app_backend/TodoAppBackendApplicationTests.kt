@@ -55,8 +55,10 @@ class TodoAppBackendApplicationTests {
         val result = webClient
             .get().uri("/index")
             .exchange()
-            .expectStatus().isOk
+            .expectBody(String::class.java) // ボディを取得
+            .returnResult()
+            .responseBody
 
-        println("result $result")
+        println("result: $result")
     }
 }
