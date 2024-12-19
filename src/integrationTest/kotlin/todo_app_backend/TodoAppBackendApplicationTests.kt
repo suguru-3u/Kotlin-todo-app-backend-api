@@ -1,11 +1,8 @@
 package todo_app_backend
 
-import TestConfig
 import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired
-import org.springframework.boot.test.autoconfigure.web.reactive.AutoConfigureWebTestClient
 import org.springframework.boot.test.context.SpringBootTest
-import org.springframework.test.web.reactive.server.WebTestClient
 import org.springframework.test.web.reactive.server.expectBody
 import org.springframework.test.web.servlet.client.MockMvcWebTestClient
 import org.testcontainers.junit.jupiter.Testcontainers
@@ -27,6 +24,8 @@ class TodoAppBackendApplicationTests {
 //    private lateinit var webClient: WebTestClient
 
 //    lateinit var webTestClientBuilder: WebTestClient
+
+    // CRUDのテストコードを正常系1本づつ作成する
 
     @Test
     fun contextLoads() {
