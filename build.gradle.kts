@@ -112,6 +112,8 @@ dependencies {
     integrationTestImplementation("org.testcontainers:junit-jupiter:1.20.4")
     integrationTestImplementation("org.testcontainers:mysql") //no version specified
     integrationTestImplementation("org.springframework.boot:spring-boot-starter-webflux")
+    integrationTestImplementation("com.fasterxml.jackson.module:jackson-module-kotlin:2.15.2")
+    integrationTestImplementation("org.springframework.boot:spring-boot-starter-data-jdbc")
 }
 
 group = "moja"

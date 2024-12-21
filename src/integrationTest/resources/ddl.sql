@@ -3,5 +3,3 @@ CREATE TABLE IF NOT EXISTS todo (
  title VARCHAR(255) NOT NULL,
  create_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
-
-INSERT INTO todo(title) VALUES("IntegrationTest1");
