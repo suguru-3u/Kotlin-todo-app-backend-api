@@ -7,6 +7,8 @@ import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.jdbc.core.JdbcTemplate
+import org.springframework.jdbc.support.GeneratedKeyHolder
+import org.springframework.jdbc.support.KeyHolder
 import org.springframework.test.web.servlet.client.MockMvcWebTestClient
 import org.testcontainers.junit.jupiter.Testcontainers
 import todo.app.backend.api.TodoAppBackendApplication
@@ -30,16 +32,13 @@ class TodoAppBackendApplicationTests() {
     @Autowired
     lateinit var jdbcTemplate: JdbcTemplate
 
-    //    @Autowired
-//    private lateinit var webClient: WebTestClient
-
-//    lateinit var webTestClientBuilder: WebTestClient
-
     // CRUDのテストコードを正常系1本づつ作成する
 
     // 一覧取得API
     @Test
     fun index() {
+
+        // 共通化させたい
         val webClient = MockMvcWebTestClient.bindToController(
             TodoController(todoApplicationService)
         ).build()
@@ -74,6 +73,8 @@ class TodoAppBackendApplicationTests() {
             response,
             "一覧取得APIのレスポンスが予期しない値でした"
         )
+
+        jdbcTemplate.execute("DELETE FROM todo")
     }
 
 //    @Test
