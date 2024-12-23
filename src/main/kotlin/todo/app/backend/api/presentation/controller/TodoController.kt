@@ -12,11 +12,6 @@ class TodoController(
 ) {
     // Todo: TodoをCRUDするAPIを作成する
 
-    @GetMapping("/")
-    fun test(): String {
-        return "Hello World"
-    }
-
     // 一覧取得API
     @GetMapping("/index")
     fun index(): ApiResponceTodoIndex {
