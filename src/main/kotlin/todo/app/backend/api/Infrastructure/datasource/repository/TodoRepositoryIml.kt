@@ -1,6 +1,7 @@
 package todo.app.backend.api.Infrastructure.datasource.repository
 
 import org.apache.ibatis.jdbc.SQL
+import todo.app.backend.api.domain.Todo
 import todo.app.backend.api.presentation.request.TodoForm
 
 class TodoRepositoryIml {
@@ -15,9 +16,10 @@ class TodoRepositoryIml {
     }
 
     @Suppress("unused", "UNUSED_PARAMETER")
-    fun register(todoForm: TodoForm): String = SQL().run {
+    fun register(todo: Todo): String = SQL().run {
         INSERT_INTO("todo")
         VALUES("title", "#{title}")
+        VALUES("category", "#{category}")
         toString()
     }
 

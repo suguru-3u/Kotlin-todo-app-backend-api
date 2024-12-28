@@ -12,7 +12,7 @@ interface IFTodoRepository {
     fun index():List<Todo>
 
     @InsertProvider(type = TodoRepositoryIml::class, method = "register")
-    fun register(todoForm: TodoForm)
+    fun register(todo: Todo)
 
     @SelectProvider(type = TodoRepositoryIml::class, method = "findTodo")
     fun findTodo(todoId: String):String

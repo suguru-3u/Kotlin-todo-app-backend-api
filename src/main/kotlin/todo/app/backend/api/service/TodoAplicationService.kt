@@ -2,6 +2,8 @@ package todo.app.backend.api.service
 
 import org.springframework.stereotype.Service
 import todo.app.backend.api.Infrastructure.datasource.adapter.IFTodoRepository
+import todo.app.backend.api.domain.Category
+import todo.app.backend.api.domain.Todo
 import todo.app.backend.api.domain.TodoService
 import todo.app.backend.api.presentation.request.TodoForm
 import todo.app.backend.api.presentation.responce.ApiResponceTodoIndex
@@ -20,7 +22,9 @@ class TodoApplicationService(
     }
 
     fun register(todoForm: TodoForm) {
-        todoRepository.register(todoForm)
+        val category = Category.findCategory(todoForm.category)
+        val todo = Todo(title = todoForm.title, category = category)
+        todoRepository.register(todo)
     }
 
     fun edit(todoId: Long, todoForm: TodoForm) {
