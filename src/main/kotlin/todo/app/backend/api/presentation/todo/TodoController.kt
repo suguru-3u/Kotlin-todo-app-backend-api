@@ -1,10 +1,8 @@
-package todo.app.backend.api.presentation.controller
+package todo.app.backend.api.presentation.todo
 
 import org.springframework.http.HttpStatus
 import org.springframework.web.bind.annotation.*
-import todo.app.backend.api.presentation.request.TodoForm
-import todo.app.backend.api.presentation.responce.ApiResponceTodoIndex
-import todo.app.backend.api.service.TodoApplicationService
+import todo.app.backend.api.useCases.TodoApplicationService
 
 @RestController
 class TodoController(

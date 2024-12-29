@@ -1,4 +1,4 @@
-package todo.app.backend.api.presentation.responce
+package todo.app.backend.api.presentation.todo
 
 import todo.app.backend.api.domain.Todo
 
