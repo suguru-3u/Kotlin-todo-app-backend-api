@@ -2,12 +2,13 @@ package todo.app.backend.api.Infrastructure.datasource.repository
 
 import org.apache.ibatis.jdbc.SQL
 import todo.app.backend.api.domain.entities.Todo
-import todo.app.backend.api.presentation.todo.TodoForm
+import todo.app.backend.api.presentation.todo.AddTodoRequest
+import todo.app.backend.api.presentation.todo.EditTodoRequest
 
 class TodoRepositoryIml {
 
     @Suppress("unused")
-    fun index(): String = SQL().run {
+    fun search(): String = SQL().run {
         SELECT(
             "title",
             "category"
@@ -17,7 +18,7 @@ class TodoRepositoryIml {
     }
 
     @Suppress("unused", "UNUSED_PARAMETER")
-    fun register(todo: Todo): String = SQL().run {
+    fun add(todo: Todo): String = SQL().run {
         INSERT_INTO("todo")
         VALUES("title", "#{title}")
         VALUES("category", "#{category}")
@@ -25,7 +26,7 @@ class TodoRepositoryIml {
     }
 
     @Suppress("unused", "UNUSED_PARAMETER")
-    fun findTodo(todoId: String): String = SQL().run {
+    fun existTodo(todoId: Long): String = SQL().run {
         SELECT(
             "title"
         )
@@ -35,9 +36,9 @@ class TodoRepositoryIml {
     }
 
     @Suppress("unused", "UNUSED_PARAMETER")
-    fun update(todoId: String, todoForm: TodoForm): String = SQL().run {
+    fun edit(todoId: String, editTodoRequest: EditTodoRequest): String = SQL().run {
         UPDATE("todo")
-        SET("title = #{todoForm.title}")
+        SET("title = #{editTodoRequest.title}")
         WHERE("id = #{todoId}")
         toString()
     }

@@ -14,29 +14,26 @@ class TodoController(
     val todoEditScenario: TodoEditScenario,
     val todoDeleteScenario: TodoDeleteScenario
 ) {
-    // Todo: TodoをCRUDするAPIを作成する
-
-    // 一覧取得API
-    @GetMapping("/index")
-    fun index(): ApiResponceTodoIndex {
-        return todoSearchScenario.index()
+    @GetMapping("/search")
+    fun search(): SearchTodosResponse {
+        return todoSearchScenario.execute()
     }
 
-    @PostMapping("/register")
+    @PostMapping("/add")
     @ResponseStatus(HttpStatus.CREATED)
-    fun register(@RequestBody todoForm: TodoForm) {
-        todoAddScenario.register(todoForm)
+    fun add(@RequestBody addTodoRequest: AddTodoRequest) {
+        todoAddScenario.execute(addTodoRequest)
     }
 
     @PutMapping("/edit/{todoId}")
     @ResponseStatus(HttpStatus.CREATED)
-    fun edit(@PathVariable todoId: Long, @RequestBody todoForm: TodoForm) {
-        todoEditScenario.edit(todoId, todoForm)
+    fun edit(@PathVariable todoId: Long, @RequestBody editTodoRequest: EditTodoRequest) {
+        todoEditScenario.execute(todoId, editTodoRequest)
     }
 
     @DeleteMapping("/delete/{todoId}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     fun delete(@PathVariable todoId: Long) {
-        todoDeleteScenario.delete(todoId)
+        todoDeleteScenario.execute(todoId)
     }
 }

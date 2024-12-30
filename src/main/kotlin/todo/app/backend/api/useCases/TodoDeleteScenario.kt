@@ -11,8 +11,8 @@ class TodoDeleteScenario(
     val todoRepository: IFTodoRepository
 ) {
 
-    fun delete(todoId: Long) {
-        if (todoService.exist(todoId.toString())) throw Error("存在しないtodo idです")
+    fun execute(todoId: Long) {
+        if (todoService.exist(todoId)) throw Error("存在しないtodo idです")
         todoRepository.delete(todoId.toString())
     }
 }
