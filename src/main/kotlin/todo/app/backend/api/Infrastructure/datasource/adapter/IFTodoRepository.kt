@@ -2,7 +2,7 @@ package todo.app.backend.api.Infrastructure.datasource.adapter
 
 import org.apache.ibatis.annotations.*
 import todo.app.backend.api.Infrastructure.datasource.repository.TodoRepositoryIml
-import todo.app.backend.api.domain.Todo
+import todo.app.backend.api.domain.entities.Todo
 import todo.app.backend.api.presentation.todo.TodoForm
 
 @Mapper

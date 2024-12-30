@@ -1,4 +1,4 @@
-package todo.app.backend.api.domain
+package todo.app.backend.api.domain.valueObjects
 
 enum class Category(value: String) {
     NORMAL("normal"),

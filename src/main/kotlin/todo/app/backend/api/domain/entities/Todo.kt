@@ -1,4 +1,6 @@
-package todo.app.backend.api.domain
+package todo.app.backend.api.domain.entities
+
+import todo.app.backend.api.domain.valueObjects.Category
 
 data class Todo(
     val title: String,

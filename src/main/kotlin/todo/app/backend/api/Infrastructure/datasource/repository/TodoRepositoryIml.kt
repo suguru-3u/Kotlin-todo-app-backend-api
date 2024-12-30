@@ -1,7 +1,7 @@
 package todo.app.backend.api.Infrastructure.datasource.repository
 
 import org.apache.ibatis.jdbc.SQL
-import todo.app.backend.api.domain.Todo
+import todo.app.backend.api.domain.entities.Todo
 import todo.app.backend.api.presentation.todo.TodoForm
 
 class TodoRepositoryIml {
@@ -9,7 +9,8 @@ class TodoRepositoryIml {
     @Suppress("unused")
     fun index(): String = SQL().run {
         SELECT(
-            "title"
+            "title",
+            "category"
         )
         FROM("todo")
         toString()
