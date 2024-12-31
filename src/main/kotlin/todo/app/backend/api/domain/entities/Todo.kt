@@ -1,14 +1,10 @@
 package todo.app.backend.api.domain.entities
 
-import todo.app.backend.api.domain.valueObjects.Category
+import todo.app.backend.api.domain.valueObjects.TodoKind
+import todo.app.backend.api.domain.valueObjects.TodoTitle
 
 data class Todo(
-    val title: String,
-    val category: Category
-) {
-    init {
-        if(title.isEmpty()){
-            throw Error("不正な値を検知しました")
-        }
-    }
-}
+    val title: TodoTitle,
+    val kind: TodoKind,
+    val category: Int = 1
+)

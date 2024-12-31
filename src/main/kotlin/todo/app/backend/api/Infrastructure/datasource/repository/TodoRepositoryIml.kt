@@ -1,7 +1,11 @@
 package todo.app.backend.api.Infrastructure.datasource.repository
 
+import org.apache.ibatis.annotations.Result
+import org.apache.ibatis.annotations.Results
 import org.apache.ibatis.jdbc.SQL
 import todo.app.backend.api.domain.entities.Todo
+import todo.app.backend.api.domain.valueObjects.TodoKind
+import todo.app.backend.api.domain.valueObjects.TodoTitle
 import todo.app.backend.api.presentation.todo.AddTodoRequest
 import todo.app.backend.api.presentation.todo.EditTodoRequest
 
@@ -11,17 +15,20 @@ class TodoRepositoryIml {
     fun search(): String = SQL().run {
         SELECT(
             "title",
-            "category"
+            "kind",
+            "categories_id",
+            "create_time"
         )
-        FROM("todo")
+        FROM("todos")
         toString()
     }
 
     @Suppress("unused", "UNUSED_PARAMETER")
     fun add(todo: Todo): String = SQL().run {
-        INSERT_INTO("todo")
-        VALUES("title", "#{title}")
-        VALUES("category", "#{category}")
+        INSERT_INTO("todos")
+        VALUES("title", "#{title.title}")
+        VALUES("kind", "#{kind.kindName}")
+        VALUES("categories_id", "#{category}")
         toString()
     }
 
@@ -30,22 +37,24 @@ class TodoRepositoryIml {
         SELECT(
             "title"
         )
-        FROM("todo")
+        FROM("todos")
         WHERE("id = #{todoId}")
         toString()
     }
 
     @Suppress("unused", "UNUSED_PARAMETER")
-    fun edit(todoId: String, editTodoRequest: EditTodoRequest): String = SQL().run {
-        UPDATE("todo")
-        SET("title = #{editTodoRequest.title}")
+    fun edit(todoId: String, todo: Todo): String = SQL().run {
+        UPDATE("todos")
+        SET("title = #{todo.title.title}")
+        SET("kind = #{todo.kind.kindName}")
+        SET("categories_id = #{todo.category}")
         WHERE("id = #{todoId}")
         toString()
     }
 
     @Suppress("unused", "UNUSED_PARAMETER")
     fun delete(todoId: String):String = SQL().run {
-        DELETE_FROM("todo")
+        DELETE_FROM("todos")
         WHERE("id = #{todoId}")
         toString()
     }

@@ -1,6 +1,10 @@
 package todo.app.backend.api.presentation.todo
 
 data class AddTodoRequest(
-    val title: String,
-    val category: String
+    override val title: String,
+    override val category: Int = 1,
+    override val kind: String
+) : BaseTodoRequest(
+    title = title,
+    kind = kind
 )
