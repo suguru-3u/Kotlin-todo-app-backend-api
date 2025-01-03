@@ -10,6 +10,7 @@ class CategoryController {
     @GetMapping("/add")
     @ResponseStatus(HttpStatus.CREATED)
     fun add() {
-        print("Hello Category Controller")
+        print("Hello Category Controller!" +
+                "")
     }
 }
