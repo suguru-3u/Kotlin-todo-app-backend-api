@@ -1,8 +1,8 @@
-package todo.app.backend.api.useCases
+package todo.app.backend.api.useCases.todo
 
 import org.springframework.stereotype.Service
 import todo.app.backend.api.Infrastructure.datasource.adapter.IFTodoRepository
-import todo.app.backend.api.presentation.todo.SearchTodosResponse
+import todo.app.backend.api.presentation.todo.responce.SearchTodosResponse
 
 
 @Service

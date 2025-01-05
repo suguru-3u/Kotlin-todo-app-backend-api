@@ -1,4 +1,4 @@
-package todo.app.backend.api.presentation.todo
+package todo.app.backend.api.presentation.todo.responce
 
 import todo.app.backend.api.Infrastructure.datasource.entity.TodoEntity
 

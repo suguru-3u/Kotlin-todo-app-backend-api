@@ -1,4 +1,4 @@
-package todo.app.backend.api.presentation.todo
+package todo.app.backend.api.presentation.todo.request
 
 open class BaseTodoRequest(
     open val title: String,

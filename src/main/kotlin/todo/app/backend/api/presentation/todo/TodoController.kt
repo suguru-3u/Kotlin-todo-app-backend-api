@@ -2,10 +2,13 @@ package todo.app.backend.api.presentation.todo
 
 import org.springframework.http.HttpStatus
 import org.springframework.web.bind.annotation.*
-import todo.app.backend.api.useCases.TodoAddScenario
-import todo.app.backend.api.useCases.TodoDeleteScenario
-import todo.app.backend.api.useCases.TodoEditScenario
-import todo.app.backend.api.useCases.TodoSearchScenario
+import todo.app.backend.api.presentation.todo.request.AddTodoRequest
+import todo.app.backend.api.presentation.todo.request.EditTodoRequest
+import todo.app.backend.api.presentation.todo.responce.SearchTodosResponse
+import todo.app.backend.api.useCases.todo.TodoAddScenario
+import todo.app.backend.api.useCases.todo.TodoDeleteScenario
+import todo.app.backend.api.useCases.todo.TodoEditScenario
+import todo.app.backend.api.useCases.todo.TodoSearchScenario
 
 @RestController
 class TodoController(

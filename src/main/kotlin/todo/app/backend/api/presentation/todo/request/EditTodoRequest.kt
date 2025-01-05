@@ -1,4 +1,4 @@
-package todo.app.backend.api.presentation.todo
+package todo.app.backend.api.presentation.todo.request
 
 data class EditTodoRequest(
     override val title: String,

@@ -4,7 +4,7 @@ import org.springframework.stereotype.Service
 import todo.app.backend.api.domain.entities.Todo
 import todo.app.backend.api.domain.valueObjects.TodoKind
 import todo.app.backend.api.domain.valueObjects.TodoTitle
-import todo.app.backend.api.presentation.todo.BaseTodoRequest
+import todo.app.backend.api.presentation.todo.request.BaseTodoRequest
 
 @Service
 class TodoFactory {

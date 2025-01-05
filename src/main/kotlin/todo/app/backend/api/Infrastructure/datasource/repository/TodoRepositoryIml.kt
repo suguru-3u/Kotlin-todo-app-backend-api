@@ -1,13 +1,7 @@
 package todo.app.backend.api.Infrastructure.datasource.repository
 
-import org.apache.ibatis.annotations.Result
-import org.apache.ibatis.annotations.Results
 import org.apache.ibatis.jdbc.SQL
 import todo.app.backend.api.domain.entities.Todo
-import todo.app.backend.api.domain.valueObjects.TodoKind
-import todo.app.backend.api.domain.valueObjects.TodoTitle
-import todo.app.backend.api.presentation.todo.AddTodoRequest
-import todo.app.backend.api.presentation.todo.EditTodoRequest
 
 class TodoRepositoryIml {
 
