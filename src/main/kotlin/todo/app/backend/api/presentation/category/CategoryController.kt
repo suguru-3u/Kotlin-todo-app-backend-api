@@ -24,4 +24,10 @@ class CategoryController(
     fun edit(@PathVariable categoryId: Long, @RequestBody editCategoryRequest: EditCategoryRequest) {
         categoryEditScenario.execute(categoryId, editCategoryRequest)
     }
+
+    @DeleteMapping("/delete/{categoryId}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    fun delete(@PathVariable categoryId: Long){
+        println("削除処理の実装")
+    }
 }
