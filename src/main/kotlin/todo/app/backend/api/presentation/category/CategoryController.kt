@@ -28,6 +28,6 @@ class CategoryController(
     @DeleteMapping("/delete/{categoryId}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     fun delete(@PathVariable categoryId: Long){
-        println("削除処理の実装")
+        println("削除処理の実装は明日頑張ろう！")
     }
 }
